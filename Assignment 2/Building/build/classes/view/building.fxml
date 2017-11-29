@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox fx:controller="controller.BuildingController" 
+        xmlns:fx="http://javafx.com/fxml" alignment="center"
+     >
+
+    <HBox>
+        <HBox spacing="45" prefWidth="330" prefHeight="100" alignment="CENTER">
+        <ImageView>
+            <image><Image url="@building.png"/></image>
+        </ImageView>
+        <VBox alignment="BASELINE_LEFT" spacing="-1.75">
+            <Text styleClass="heading" text="Lift System"/>
+            <Text styleClass="subheading" text="Building"/>
+        </VBox>
+    </HBox>
+    </HBox>
+    
+    <HBox prefWidth="425" prefHeight="130" alignment="CENTER">
+    <VBox alignment="CENTER" prefWidth="390" prefHeight="170"> 
+    <TableView fx:id="liftsTv" items="${controller.building.lifts}" prefWidth="375" prefHeight="110">
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+        <columns>
+            <TableColumn fx:id="liftClm" text="Lift"/>
+            <TableColumn fx:id="levelClm" text="Level"/>
+            <TableColumn fx:id="directionClm" text="Direction"/>
+            <TableColumn fx:id="passengersClm" text="Passengers"/>
+            <TableColumn fx:id="waitingClm" text="Waiting"/>
+        </columns>
+    </TableView>
+    </VBox>
+    </HBox>
+    
+    <HBox prefHeight="60" spacing="10" alignment="center">
+        <Button onAction="#handleCall" text="Call Lift"/>
+        <Button fx:id="viewBtn" onAction="#handleView" text="View Lift"/>
+        <Button onAction="#handlePeople" text="People"/>
+        <Button onAction="#handleExit" text="Exit"/>
+    </HBox>  
+    
+    <HBox alignment="center">
+        <Slider fx:id="delaySl" prefWidth="300" min="1" max="10" snapToTicks="true" majorTickUnit="1" minorTickCount="0" showTickMarks="true" showTickLabels="true"/>    
+        <Text styleClass="time" text="${'Time: ' + controller.building.time}"/>
+    </HBox>
+    
+    
+    <stylesheets>
+      <URL value="@style.css"/>
+   </stylesheets>
+   
+</VBox>

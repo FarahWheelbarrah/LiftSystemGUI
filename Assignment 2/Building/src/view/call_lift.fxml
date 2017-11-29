@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox   fx:controller="controller.CallLiftController"
+        xmlns:fx="http://javafx.com/fxml" alignment="center"
+>
+    <HBox>
+        <HBox spacing="35" prefWidth="330" prefHeight="100" alignment="CENTER">
+        <ImageView>
+            <image><Image url="@building.png"/></image>
+        </ImageView>
+        <VBox alignment="BASELINE_LEFT" spacing="-1.75">
+            <Text styleClass="heading" text="Lift System"/>
+            <Text styleClass="subheading" text="Call lift"/>
+        </VBox>
+    </HBox>
+    </HBox>
+    
+    <VBox spacing="8" alignment="center" prefHeight="145" prefWidth="300">
+    <GridPane hgap="10" vgap="10" alignment="center">
+        <Label text="Caller:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ComboBox fx:id="peopleCmb" promptText="choose" items="${controller.building.people}"
+                  GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label text="Destination:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="destinationTf" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+    <Text id="errorText" fx:id="errorTxt"/>
+    </VBox>
+    
+    <HBox spacing="10" alignment="center" prefHeight="50">
+        <Button onAction="#handleCancel" text="Cancel"/>
+        <Button onAction="#handleCall" text="Call"/>
+    </HBox>  
+    
+    
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+
+
+
+
+
+
+
+</VBox>

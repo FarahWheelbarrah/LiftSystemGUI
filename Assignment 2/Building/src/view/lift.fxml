@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?> 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+
+<VBox
+        fx:controller="controller.LiftController"
+        xmlns:fx="http://javafx.com/fxml" alignment="center"
+        >
+    
+    <HBox>
+        <HBox spacing="45" prefWidth="330" prefHeight="100" alignment="CENTER">
+        <ImageView>
+            <image><Image url="@building.png"/></image>
+        </ImageView>
+        <VBox alignment="BASELINE_LEFT" spacing="-1.75">
+            <Text styleClass="heading" text="Lift System"/>
+            <Text styleClass="subheading" text="${'Lift ' + controller.lift.number}"/>
+        </VBox>
+    </HBox>
+    </HBox>
+    
+    <GridPane alignment="center" hgap="15" vgap="0">
+        <Label text="Current level:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <Text text="${controller.lift.level}" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <Label text="Bottom level:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Text text="${controller.lift.bottom}" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Text styleClass="direction" fx:id="directionTxt" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+        <Label text="Top level:" GridPane.columnIndex="0" GridPane.rowIndex="2"/> 
+        <Text text="${controller.lift.top}" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+    </GridPane>
+    
+    <HBox alignment="CENTER" prefWidth="550" prefHeight="140"> 
+    <GridPane alignment="CENTER" prefWidth="500" prefHeight="100">
+        <Text text="Passengers" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+        <ListView items="${controller.lift.passengers}" prefHeight="90" prefWidth="490" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <Text text="Queue" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+        <ListView items="${controller.lift.queue}" prefHeight="105" prefWidth="490" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+    </GridPane>
+    </HBox>
+    
+    <VBox prefHeight="50" alignment="CENTER">
+    <Button onAction="#handleClose" text="Close"/>
+    </VBox>
+    
+    <stylesheets>
+      <URL value="@style.css"/>
+   </stylesheets>
+   
+</VBox>
